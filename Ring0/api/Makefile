@@ -6,14 +6,13 @@ OBJ_DIR      = $(SOURCE_DIR)/obj
 BUILD_DIR    = $(SOURCE_DIR)/build
 OUT_BINARY   = $(BUILD_DIR)/api
 
-ADD_INC_DIRS?= 
-INCLUDES     = $(INC_DIR) $(ADD_INC_DIRS)
+INCLUDES     = $(INC_DIR) $(MODULE_INC)
 INC_PARAMS   = $(foreach path, $(INCLUDES), -I$(path))
 SRC_FILES    = $(wildcard src/*.cc)
 OBJ_FILES    = $(SRC_FILES:src%.cc=obj%.o)
 
 CXX_FLAGS    = -Wall -Wextra -std=c++17 $(INC_PARAMS) -ggdb
-LD_FLAGS     = -lflashrom 
+LD_FLAGS     = 
 
 GREEN_COLOR = \\033[0;32m
 RED_COLOR   = \\033[0;31m
@@ -43,7 +42,7 @@ clean:
 
 .PHONY: compile-commands
 compile-commands: clean
-	@bear -- $(MAKE) build
+	@bear -- $(MAKE) CC=clang build
 
 
 

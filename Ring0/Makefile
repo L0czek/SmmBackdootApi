@@ -1,6 +1,7 @@
 SOURCE_DIR        = $(shell pwd)
 MODULE_DIR    	  = $(SOURCE_DIR)/module
 API_DIR  		  = $(SOURCE_DIR)/api
+MODULE_INC		  = $(MODULE_DIR)/src
 
 ARCH               ?= x86_64
 CROSS_PREFIX       ?= 
@@ -19,7 +20,7 @@ compile-kernel-module:
 
 compile-api:
 	@echo "$(GREEN_COLOR)Compiling Api.$(NC)"
-	$(MAKE) -C $(API_DIR) build
+	$(MAKE) -C $(API_DIR) MODULE_INC=$(MODULE_INC) build
 	@echo "$(GREEN_COLOR)Finished compiling Api.$(NC)"
 
 clean-kernel-module:
@@ -38,7 +39,7 @@ clean: clean-api clean-kernel-module
 
 .PHONY: compile-commands
 compile-commands:
-	$(MAKE) -C $(API_DIR) compile-commands
+	$(MAKE) -C $(API_DIR) MODULE_INC=$(MODULE_INC) compile-commands
 	$(MAKE) -C $(MODULE_DIR) compile-commands
 
 

@@ -33,4 +33,4 @@ uninstall:
 
 .PHONY: compile-commands
 compile-commands: clean
-	@bear -- $(MAKE) build
+	@bear -- $(MAKE) CC=clang build

@@ -1,5 +1,8 @@
 #include <iostream>
+#include "api.hpp"
+#include <memory>
 
 int main() {
-    std::cout << "Hello world\n";
+    auto api = std::make_unique<SmmBackdoorApi>();
+    api->hello_world_test();
 }

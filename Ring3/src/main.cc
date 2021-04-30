@@ -1,8 +1,7 @@
 #include <iostream>
-#include "api.hpp"
 
-int main() {
-    auto api = BackdoorApi();
+#include "cli.hpp"
 
-    api.hello_world_test();
+int main(int argc, char* argv[]) {
+    return Cli(argc, argv).handle();
 }

@@ -25,6 +25,8 @@ private:
     static po::positional_options_description global_pos_desc();
     static po::options_description change_priv_opt_desc();
     static po::options_description dump_reg_opt_desc();
+    static po::options_description change_mode_opt_desc();
+    static po::options_description only_global_options();
     static void print_help();
 
     po::variables_map parse_global_options() const;
@@ -33,6 +35,8 @@ private:
     int handle_get_current_cpu_subcommand() const;
     int handle_change_priv_subcommand() const;
     int handle_dump_reg_subcommand() const;
+    int handle_change_mode_subcommand() const;
+    int handle_check_subcommand() const;
 
     std::unordered_map<std::string, std::function<int()>> subcommands;
 };

@@ -65,12 +65,12 @@ void Cli::print_help() {
     std::cerr << 
 R"(Usage ./cli [global options] [subcommand] [subcommand's args...]
 Subcommnds:
-    hello_world_test
-    get_current_cpu
-    change_priv
-    dump_reg
-    set_mode
-    check
+    hello_world_test        Used to test wheater backdoor is working.
+    get_current_cpu         Gets the cpu id on which SMM code is running.
+    change_priv             Changes privileges of the current process
+    dump_reg                Dumps register from the save state.
+    set_mode                Changes Backdoor mode (stealth / normal).
+    check                   Checks wheather backdoor is initilized.
 
 )";
 
